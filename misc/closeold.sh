@@ -31,14 +31,14 @@ date=`date --date="$1 day ago" +%Y.%m.%d`
 #	echo "
 #	"
 #done
-for n in `seq 200 700`
+for n in `seq 3 10`
         do
         getdate $n
         echo $date"
 	"
 #        curl -XPUT 'localhost:9200/logstash-'$date'/_settings' -d '{"index":{"number_of_replicas":1}}'
 #	curl -XPOST 'http://localhost:9200/logstash-'$date'/_optimize'
-	curl -XPOST 'http://localhost:9200/logstash-'$date'/_close'
+	curl -XPOST 'http://172.24.33.8:9200/logstash-'$date'/_open'
 #	elasticdump --limit=100 --input='http://localhost:9200/logstash-'$date --output=/storage/backups/logstash-$date.json'
 	echo "
 	"
